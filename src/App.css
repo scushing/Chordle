@@ -19,19 +19,42 @@ html {
 
 }
 
-#keyboard {
+.keyboard {
     text-align: center;
+    background-color: aliceblue;
+    grid-template-rows: [row1-start] 33% [row1-end] 33% [row2-end] 33% [row3-end];
+    grid-template-columns: [left] 100% [right];
+}
+
+.keyboard-first-row {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: row1-start;
+    grid-row-end: row1-end;
+}
+
+.keyboard-second-row {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: row1-end;
+    grid-row-end: row2-end;
+}
+
+#keyboard-third-row {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: row2-end;
+    grid-row-end: row3-end;
 }
 
 #key {
     font-family: fantasy;
     text-align: center;
-    font-size: 25px;
+    font-size: 12px;
     margin: 10px;
     background-color: aliceblue;
-    color: purple;
-    border: 2px solid purple;
-    border-radius: 4px;
-    width: 350px;
+    color: black;
+    border: 1px black;
+    border-radius: 2px;
     align-content: center;
 }
