@@ -1,0 +1,37 @@
+#title-bar {
+    font-family: "Monoton", cursive;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    stroke: black;
+    margin: 10px;
+    color: aliceblue;
+}
+
+html {
+    //background-image: url("");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-color: rgba(0, 0, 0, 0.87);
+}
+
+#guess-word {
+
+}
+
+#keyboard {
+    text-align: center;
+}
+
+#key {
+    font-family: fantasy;
+    text-align: center;
+    font-size: 25px;
+    margin: 10px;
+    background-color: aliceblue;
+    color: purple;
+    border: 2px solid purple;
+    border-radius: 4px;
+    width: 350px;
+    align-content: center;
+}
