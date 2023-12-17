@@ -1,27 +1,21 @@
-// @ts-ignore
-import KeyRow from "./KeyRow";
-import "../App.css";
+import { TouchableOpacity, View, Text } from "react-native";
+import styles from "./Styles";
 
-interface KeyboardProps {
-    letters : string[];
-    correctPosition : string[];
-    inWord : string[];
-    notInWord : string[];
-}
-
-const Keyboard = (props : KeyboardProps) => {
+const Keyboard = ({ onKeyPress, keyColors }) => {
     return (
-        <keyboard>
-            <KeyRow
-                letters={["Q","W","E","R","T","Y","U","I","O","P"]}
-            />
-            <KeyRow
-                letters={["","A","S","D","F","G","H","J","K","L"]}
-            />
-            <KeyRow
-                letters={["","ENTER","Z","X","C","V","B","N","M","<-",""]}
-            />
-        </keyboard>
-    )
-}
-export default Keyboard;
+      <View style={styles.keyboard}>
+        {['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'].map((letter) => (
+          <TouchableOpacity 
+            key={letter}
+            style={[styles.key, { backgroundColor: keyColors[letter] }]}
+            onPress={() => onKeyPress(letter)}
+          >
+            <Text style={styles.keyText}>{letter}</Text>
+          </TouchableOpacity>
+        ))}
+        {/* Add more rows as needed */}
+      </View>
+    );
+  };
+  
+  export default Keyboard;
