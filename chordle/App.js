@@ -4,10 +4,8 @@ import { Keyboard, StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <p>Here's something</p>
-      <Word/>
+      <Text>Here's something</Text>
       <StatusBar style="auto" />
-      <Keyboard/>
     </View>
   );
 }
