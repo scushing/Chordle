@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Keyboard from './components/Keyboard';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import LetterBox from './components/LetterBox';
+import Word from './components/Word';
 
 export default function App() {
 
@@ -13,6 +15,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Word word='ate'/>
       <Text>{word}</Text>
       <Keyboard onKeyPress={onKeyPress} onEnter={onEnter} onDelete={onDelete} keyColors={keyColors}/>
       <StatusBar style="auto" />
