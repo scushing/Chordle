@@ -3,11 +3,11 @@ import Word from './Word'
 
 const windowHeight = Dimensions.get('window').height;
 
-const WordContainer = ({words, wordLength}) => {
+const WordContainer = ({words}) => {
     return(
         <View style={styles.wordsContainer}>
             {words.map((word, index) => (
-                <Word key={index} word={word} wordLength={wordLength}/>
+                <Word key={index} word={word}/>
             ))}
         </View>
     );

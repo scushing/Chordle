@@ -1,14 +1,10 @@
 import { StyleSheet, View } from "react-native";
-import { useState } from "react";
 import LetterBox from "./LetterBox";
 
-const Word = ({word, wordLength}) => {
-
-    const [displayedWord, setDisplayedWord] = useState([' '])
-
+const Word = ({word}) => {
     return(
         <View style={styles.wordContainer}>
-            {displayedWord.map((letter, index) => (
+            {word.map((letter, index) => (
                 <LetterBox key={index} letter={letter} color={'#000'}/>
             ))}
         </View>
