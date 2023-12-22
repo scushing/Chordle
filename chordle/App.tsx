@@ -31,7 +31,7 @@ export default function App() {
   }
 
   const onKeyPress = (key) => {
-    if (currentLetterIndex > length - 1) {
+    if (currentLetterIndex == length) {
       return;
     }
     let newWords = words;
@@ -41,7 +41,7 @@ export default function App() {
   }
 
   const onEnter = () => {
-    if (currentLetterIndex != length - 1) {
+    if (currentLetterIndex != length || currentWordIndex == tries) {
       return;
     }
     setCurrentWordIndex(currentWordIndex + 1);
