@@ -31,15 +31,30 @@ export default function App() {
   }
 
   const onKeyPress = (key) => {
+    if (currentLetterIndex > length - 1) {
+      return;
+    }
     let newWords = words;
     newWords[currentWordIndex][currentLetterIndex] = key;
     setWords(newWords);
     setCurrentLetterIndex(currentLetterIndex + 1);
   }
 
-  const onEnter = () => {initDisplay();}
+  const onEnter = () => {
+    if (currentLetterIndex != length - 1) {
+      return;
+    }
+    setCurrentWordIndex(currentWordIndex + 1);
+    setCurrentLetterIndex(0);
+  }
 
-  const onDelete = () => {setWords[currentWordIndex](words[currentWordIndex].slice(0, -1))}
+  const onDelete = () => {
+    let newWords = words;
+    newWords[currentWordIndex][currentLetterIndex - 1] = '';
+    if (currentLetterIndex > 0) {
+      setCurrentLetterIndex(currentLetterIndex - 1);
+    }
+  }
 
   return (
     <View style={styles.container}>
