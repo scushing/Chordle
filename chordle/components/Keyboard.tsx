@@ -10,7 +10,7 @@ const Keyboard = ({ onKeyPress, onEnter, onDelete, keyColors }) => {
             style={styles.key}
             onPress={() => onKeyPress(letter)}
           >
-            <Text style={[styles.keyText, { color : '#FFF' }]}>{letter}</Text>
+            <Text style={[styles.keyText, { color : keyColors[letter] }]}>{letter}</Text>
           </TouchableOpacity>
         ))}
         {['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'].map((letter) => (
@@ -19,7 +19,7 @@ const Keyboard = ({ onKeyPress, onEnter, onDelete, keyColors }) => {
             style={styles.key}
             onPress={() => onKeyPress(letter)}
           >
-            <Text style={[styles.keyText, { color : "#FFF" }]}>{letter}</Text>
+            <Text style={[styles.keyText, { color : keyColors[letter] }]}>{letter}</Text>
           </TouchableOpacity>
         ))}
         <TouchableOpacity
@@ -34,7 +34,7 @@ const Keyboard = ({ onKeyPress, onEnter, onDelete, keyColors }) => {
             style={styles.key}
             onPress={() => onKeyPress(letter)}
           >
-            <Text style={[styles.keyText, { color : "#FFF" }]}>{letter}</Text>
+            <Text style={[styles.keyText, { color : keyColors[letter] }]}>{letter}</Text>
           </TouchableOpacity>
         ))}
         <TouchableOpacity
