@@ -12,7 +12,7 @@ export default function App() {
   const notContainsColor = '#555';
   const correctPositionColor = 'green';
 
-  const answer = 'EBB';
+  const [answer, setAnswer] = useState('ATE')
 
   const [level, setLevel] = useState(0);
   const [length, setLength] = useState(3);
