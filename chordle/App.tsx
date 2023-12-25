@@ -6,40 +6,45 @@ import WordsContainer from './components/WordsContainer'
 
 export default function App() {
 
-  const defaultColor = '#FFF';
+  const defaultKeyColor = '#FFF';
+  const defaultLetterColor = '#000';
+  const containsColor = 'orange';
   const notContainsColor = '#555';
-  const answer = 'ATE';
+  const correctPositionColor = 'green';
+
+  const answer = 'EBB';
+
   const [level, setLevel] = useState(0);
   const [length, setLength] = useState(3);
   const [tries, setTries] = useState(4);
 
   const [keyColors, setKeyColors] = useState({
-    A: defaultColor,
-    B: defaultColor,
-    C: defaultColor,
-    D: defaultColor,
-    E: defaultColor,
-    F: defaultColor,
-    G: defaultColor,
-    H: defaultColor,
-    I: defaultColor,
-    J: defaultColor,
-    K: defaultColor,
-    L: defaultColor,
-    M: defaultColor,
-    N: defaultColor,
-    O: defaultColor,
-    P: defaultColor,
-    Q: defaultColor,
-    R: defaultColor,
-    S: defaultColor,
-    T: defaultColor,
-    U: defaultColor,
-    V: defaultColor,
-    W: defaultColor,
-    X: defaultColor,
-    Y: defaultColor,
-    Z: defaultColor,
+    A: defaultKeyColor,
+    B: defaultKeyColor,
+    C: defaultKeyColor,
+    D: defaultKeyColor,
+    E: defaultKeyColor,
+    F: defaultKeyColor,
+    G: defaultKeyColor,
+    H: defaultKeyColor,
+    I: defaultKeyColor,
+    J: defaultKeyColor,
+    K: defaultKeyColor,
+    L: defaultKeyColor,
+    M: defaultKeyColor,
+    N: defaultKeyColor,
+    O: defaultKeyColor,
+    P: defaultKeyColor,
+    Q: defaultKeyColor,
+    R: defaultKeyColor,
+    S: defaultKeyColor,
+    T: defaultKeyColor,
+    U: defaultKeyColor,
+    V: defaultKeyColor,
+    W: defaultKeyColor,
+    X: defaultKeyColor,
+    Y: defaultKeyColor,
+    Z: defaultKeyColor,
   });
 
 
@@ -56,7 +61,7 @@ export default function App() {
     for (let i = 0; i < tries; i++) {
       newWords[i] = [];
       for (let j = 0; j < length; j++) {
-        newWords[i][j] = '';
+        newWords[i][j] = {letter : '', color : defaultLetterColor};
       }
     }
     setWords(newWords);
@@ -67,7 +72,7 @@ export default function App() {
       return;
     }
     let newWords = words;
-    newWords[currentWordIndex][currentLetterIndex] = key;
+    newWords[currentWordIndex][currentLetterIndex] = {letter: key, color: defaultLetterColor};
     setWords(newWords);
     setCurrentLetterIndex(currentLetterIndex + 1);
   }
@@ -76,16 +81,23 @@ export default function App() {
     if (currentLetterIndex != length || currentWordIndex == tries) {
       return;
     }
+    let newWords = words;
     for (let i = 0; i < length; i++) {
       let contains = false;
       for (let j = 0; j < length; j++) {
-        if (answer.charAt(j) === words[currentWordIndex][i]) {
+        if (answer.charAt(j) === words[currentWordIndex][i].letter) {
           contains = true;
+          if (i === j) {
+            words[currentWordIndex][i] = {letter: words[currentWordIndex][i].letter, color: correctPositionColor};
+            break;
+          } else {
+            words[currentWordIndex][i] = {letter: words[currentWordIndex][i].letter, color: containsColor};
+          }
         }
       }
       if (!contains) {
         let newKeyColors = keyColors;
-        newKeyColors[words[currentWordIndex][i]] = notContainsColor;
+        newKeyColors[words[currentWordIndex][i].letter] = notContainsColor;
         setKeyColors(newKeyColors);
       }
     }

@@ -6,7 +6,7 @@ const windowHeight = Dimensions.get('window').height;
 const LetterBox = ({letter, color}) => {
     return (
         <View style={style.box}>
-            <Text style={[style.letter, { color : color }]}>{letter}</Text>
+            <Text style={[style.letter, { color : letter.color }]}>{letter.letter}</Text>
         </View>
     )
 }
